@@ -19,6 +19,8 @@
     
     <modules>
         <module>discoveryserver</module>
+        <module>currency-conversion-api</module>
+        <module>banks-information-api</module>
     </modules>
 
     <properties>
