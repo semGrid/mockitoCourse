@@ -7,6 +7,8 @@ import com.griddynamics.transfer.domain.exchange.CurrencyPairRate;
 import com.griddynamics.transfer.services.MoneyTransferService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
@@ -36,7 +38,10 @@ public class MoneyTransferController {
     }
 
     @GetMapping("/transactions")
-    @ApiOperation(value = "Get all performed transactions")
+    @ApiOperation(value = "Get all performed transactions", response = TransferTransaction[].class)
+    @ApiResponses({
+            @ApiResponse(code = 200, message = "Success", response = TransferTransaction[].class)
+    })
     private Collection<TransferTransaction> getAllTransactions() {
         return service.getTransferTransactions();
     }

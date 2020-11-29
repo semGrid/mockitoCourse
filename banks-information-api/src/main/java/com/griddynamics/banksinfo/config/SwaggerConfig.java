@@ -1,4 +1,4 @@
-package com.griddynamics.transfer.config;
+package com.griddynamics.banksinfo.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -18,21 +18,21 @@ import static springfox.documentation.builders.PathSelectors.regex;
 public class SwaggerConfig extends WebMvcConfigurationSupport {
 
     @Bean
-    public Docket moneyTransferApi() {
+    public Docket banksInfoApi() {
         return new Docket(DocumentationType.SWAGGER_2)
-                .groupName("money-transfer-api")
+                .groupName("banks-information-api")
                 .useDefaultResponseMessages(false)
                 .apiInfo(apiInfo())
                 .select()
                 .paths(regex("/.*"))
-                .apis(RequestHandlerSelectors.basePackage("com.griddynamics.transfer.controllers"))
+                .apis(RequestHandlerSelectors.basePackage("com.griddynamics.banksinfo.controller"))
                 .build();
     }
 
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
-                .title("Money Transfer API")
-                .description("API international money transfer operations")
+                .title("Banks Information API")
+                .description("API getting banks currency and commission")
                 .version("1.0")
                 .build();
     }
