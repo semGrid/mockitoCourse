@@ -1,5 +1,7 @@
 package com.griddynamics.conversion.entities;
 
+import com.google.common.base.Objects;
+
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
 import java.io.Serializable;
@@ -37,5 +39,19 @@ public class CurrencyId implements Serializable {
     public CurrencyId setTo(String to) {
         this.to = to;
         return this;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        CurrencyId that = (CurrencyId) o;
+        return Objects.equal(from, that.from) &&
+                Objects.equal(to, that.to);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(from, to);
     }
 }
