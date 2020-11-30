@@ -17,11 +17,7 @@ public class MoneyTransferWireMockTest extends WireMockExampleBaseTest {
     private void moneyTransferAmountValidation() {
         final BigDecimal transactionAmount = new BigDecimal("100.0");
 
-        wireMockServer.stubFor(WireMock.post(WireMock.urlEqualTo("/currency/convert"))
-                .willReturn(WireMock.aResponse()
-                        .withStatus(200)
-                        .withHeader("Content-Type", "application/json")
-                        .withBody(transactionAmount.toString())));
+        createAllStubs(transactionAmount);
 
         Response response = given().baseUri("http://localhost:8083/")
                 .contentType(ContentType.JSON)
@@ -32,12 +28,20 @@ public class MoneyTransferWireMockTest extends WireMockExampleBaseTest {
                         .setTransactionCurrency("EUR"))
                 .post("money/transfer");
 
-        BigDecimal sentAmountPlusCommission = response.jsonPath()
-                .getObject("recipient.total", BigDecimal.class).add(
-                        response.jsonPath()
-                                .getObject("recipient.commission", BigDecimal.class));
+        BigDecimal sentAmount = response.jsonPath()
+                .getObject("recipient.total", BigDecimal.class);
 
-        assertThat(sentAmountPlusCommission)
+        assertThat(sentAmount)
                 .isEqualTo(transactionAmount);
+    }
+
+    private void createAllStubs(final BigDecimal transactionAmount) {
+        //TODO: assignment: add required stubs
+
+        wireMockServer.stubFor(WireMock.post(WireMock.urlEqualTo("/currency/convert"))
+                .willReturn(WireMock.aResponse()
+                        .withStatus(200)
+                        .withHeader("Content-Type", "application/json")
+                        .withBody(transactionAmount.toString())));
     }
 }

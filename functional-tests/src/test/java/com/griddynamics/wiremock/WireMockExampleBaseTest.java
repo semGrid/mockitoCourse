@@ -2,7 +2,6 @@ package com.griddynamics.wiremock;
 
 import com.github.tomakehurst.wiremock.WireMockServer;
 import com.github.tomakehurst.wiremock.core.WireMockConfiguration;
-import com.griddynamics.banksinfo.BanksInformationApplication;
 import com.griddynamics.transfer.MoneyTransferApplication;
 import org.springframework.boot.SpringApplication;
 import org.springframework.core.env.ConfigurableEnvironment;
@@ -24,19 +23,15 @@ public class WireMockExampleBaseTest {
         wireMockServer = new WireMockServer(WireMockConfiguration.wireMockConfig().port(8888));
         wireMockServer.start();
 
-        final SpringApplication banksInfo = new SpringApplication(BanksInformationApplication.class);
-        final Properties bansInfoProps = new Properties();
-        bansInfoProps.setProperty("server.port", "8082");
-        banksInfo.setEnvironment(createTestEnvironment(bansInfoProps));
-        banksInfo.run();
-
-
         final SpringApplication moneyTransfer = new SpringApplication(MoneyTransferApplication.class);
         final Properties moneyTransferProps = new Properties();
         moneyTransferProps.setProperty("server.port", "8083");
         moneyTransferProps.setProperty("currency.conversion.service.url", "http://localhost:8888/");
+
+        //TODO: assignment: change to mock location
         moneyTransferProps.setProperty("banks.information.service.url", "http://localhost:8082/");
         moneyTransfer.setEnvironment(createTestEnvironment(moneyTransferProps));
+
         moneyTransfer.run();
     }
 
