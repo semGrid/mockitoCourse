@@ -32,12 +32,12 @@ public class MoneyTransferWireMockTest extends WireMockExampleBaseTest {
                         .setTransactionCurrency("EUR"))
                 .post("money/transfer");
 
-        BigDecimal sentAmmountPlusCommission = response.jsonPath()
+        BigDecimal sentAmountPlusCommission = response.jsonPath()
                 .getObject("recipient.total", BigDecimal.class).add(
                         response.jsonPath()
                                 .getObject("recipient.commission", BigDecimal.class));
 
-        assertThat(sentAmmountPlusCommission)
+        assertThat(sentAmountPlusCommission)
                 .isEqualTo(transactionAmount);
     }
 }
