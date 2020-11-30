@@ -10,7 +10,4 @@ public class BankInformationBaseTest {
     @LocalServerPort
     protected int appPort;
 
-    /* TODO: Mockito assignment: implement tests for GET banks/commission/{bankCode} and
-       GET banks/currency/{bankCode} using BanksInformationRepository mock
-    */
 }
