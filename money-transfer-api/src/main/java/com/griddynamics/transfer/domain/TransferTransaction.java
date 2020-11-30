@@ -55,4 +55,19 @@ public class TransferTransaction {
     public BigDecimal getTransactionAmount() {
         return transactionAmount;
     }
+
+    public TransferTransaction setBankOfRecipient(String bankOfRecipient) {
+        this.bankOfRecipient = bankOfRecipient;
+        return this;
+    }
+
+    public TransferTransaction setTransactionCurrency(String transactionCurrency) {
+        this.transactionCurrency = transactionCurrency;
+        return this;
+    }
+
+    public TransferTransaction setTransactionAmount(BigDecimal transactionAmount) {
+        this.transactionAmount = transactionAmount;
+        return this;
+    }
 }
