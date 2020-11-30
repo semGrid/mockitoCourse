@@ -14,7 +14,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class MoneyTransferWireMockTest extends WireMockExampleBaseTest {
 
     @Test
-    private void moneyTransferRequestStatusValidation() {
+    private void moneyTransferAmountValidation() {
         final BigDecimal transactionAmount = new BigDecimal("100.0");
 
         wireMockServer.stubFor(WireMock.post(WireMock.urlEqualTo("/currency/convert"))
