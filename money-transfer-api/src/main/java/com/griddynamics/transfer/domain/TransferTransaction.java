@@ -1,5 +1,7 @@
 package com.griddynamics.transfer.domain;
 
+import com.griddynamics.transfer.validators.ValidBank;
+import com.griddynamics.transfer.validators.ValidCurrency;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import org.hibernate.annotations.CreationTimestamp;
@@ -26,10 +28,12 @@ public class TransferTransaction {
 
     @Column(name = "bank_of_recipient")
     @ApiModelProperty(notes = "Code of recipient bank", example = "HSBC")
+    @ValidBank
     private String bankOfRecipient;
 
     @Column(name = "transaction_currency")
     @ApiModelProperty(notes = "Currency of sending money", example = "EUR")
+    @ValidCurrency
     private String transactionCurrency;
 
     @Column(name = "transaction_amount")
@@ -54,5 +58,20 @@ public class TransferTransaction {
 
     public BigDecimal getTransactionAmount() {
         return transactionAmount;
+    }
+
+    public TransferTransaction setBankOfRecipient(String bankOfRecipient) {
+        this.bankOfRecipient = bankOfRecipient;
+        return this;
+    }
+
+    public TransferTransaction setTransactionCurrency(String transactionCurrency) {
+        this.transactionCurrency = transactionCurrency;
+        return this;
+    }
+
+    public TransferTransaction setTransactionAmount(BigDecimal transactionAmount) {
+        this.transactionAmount = transactionAmount;
+        return this;
     }
 }
