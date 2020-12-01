@@ -24,6 +24,7 @@
         <module>money-transfer-api</module>
         <module>functional-tests</module>
         <module>banks-information-stub</module>
+        <module>currency-conversion-stub</module>
     </modules>
 
     <properties>
