@@ -1,10 +1,10 @@
 package com.griddynamics.wiremock;
 
-import com.griddynamics.banksinfo.BanksInformationApplication;
 import com.griddynamics.conversion.CurrencyConversionApplication;
 import com.griddynamics.transfer.MoneyTransferApplication;
 import com.griddynamics.transfer.domain.TransferTransaction;
 import io.restassured.http.ContentType;
+import io.swagger.Swagger2BankInfoStub;
 import org.apache.http.HttpStatus;
 import org.springframework.boot.SpringApplication;
 import org.springframework.core.env.ConfigurableEnvironment;
@@ -20,7 +20,7 @@ import java.util.Properties;
 
 import static io.restassured.RestAssured.given;
 
-public class WireMockExampleBaseTest {
+public class SwaggerStubExampleBaseTest {
 
     @BeforeClass(alwaysRun = true)
     public void servicesStart() throws IOException {
@@ -30,7 +30,7 @@ public class WireMockExampleBaseTest {
         currencyExchange.setEnvironment(createTestEnvironment(currencyExchangeProps));
         currencyExchange.run();
 
-        final SpringApplication banksInfo = new SpringApplication(BanksInformationApplication.class);
+        final SpringApplication banksInfo = new SpringApplication(Swagger2BankInfoStub.class);
         final Properties bansInfoProps = new Properties();
         bansInfoProps.setProperty("server.port", "8082");
         banksInfo.setEnvironment(createTestEnvironment(bansInfoProps));
