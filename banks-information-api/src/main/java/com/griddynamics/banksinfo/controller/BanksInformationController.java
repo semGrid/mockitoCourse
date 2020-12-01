@@ -33,22 +33,23 @@ public class BanksInformationController {
 
     @GetMapping("/currency/{bankCode}")
     @ApiOperation(value = "Get currency by bank code", response = String.class)
-    private String getBankCurrency(@ApiParam(name = "bankCode", example = "HSBC", required = true)
-                                       @PathVariable String bankCode) {
+    private String getBankCurrency(
+            @ApiParam(name = "bankCode", example = "HSBC", required = true)
+            @PathVariable String bankCode) {
         return service.getBankCurrency(bankCode.toUpperCase());
     }
 
     @GetMapping("/info/{bankCode}")
     @ApiOperation(value = "Get information by bank code", response = String.class)
     private BankInformation getBankInfo(@ApiParam(name = "bankCode", example = "HSBC", required = true)
-                                            @PathVariable String bankCode) {
+                                        @PathVariable String bankCode) {
         return service.findByCode(bankCode.toUpperCase());
     }
 
     @GetMapping("/commission/{bankCode}")
     @ApiOperation(value = "Get commission percentage by bank code", response = BigDecimal.class)
     private BigDecimal getBankCommission(@ApiParam(name = "bankCode", example = "HSBC", required = true)
-                                             @PathVariable String bankCode) {
+                                         @PathVariable String bankCode) {
         return service.getBankCommission(bankCode.toUpperCase());
     }
 }

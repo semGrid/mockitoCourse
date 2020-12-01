@@ -1,6 +1,7 @@
 package com.griddynamics.conversion.entities;
 
 import com.google.common.base.Objects;
+import io.swagger.annotations.ApiModelProperty;
 
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
@@ -10,9 +11,11 @@ import java.io.Serializable;
 public class CurrencyId implements Serializable {
 
     @Column(name = "from_currency")
+    @ApiModelProperty(notes = "From currency code", example = "EUR")
     private String from;
 
     @Column(name = "to_currency")
+    @ApiModelProperty(notes = "To currency code", example = "USD")
     private String to;
 
     public CurrencyId() {

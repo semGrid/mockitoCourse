@@ -68,7 +68,6 @@ public class MoneyTransferController {
         final Map<String, String> bankCodeParam = ImmutableMap.of("bankCode", bankCode);
         final String currencyEndpoint = bankInfoApiUrl + "banks/currency/{bankCode}";
 
-        System.out.println(restTemplate.getForObject(currencyEndpoint, String.class, bankCodeParam));
         return restTemplate.getForEntity(currencyEndpoint, String.class, bankCodeParam)
                 .getBody();
     }
@@ -77,7 +76,6 @@ public class MoneyTransferController {
         final Map<String, String> bankCodeParam = ImmutableMap.of("bankCode", bankCode);
         final String commissionEndpoint = bankInfoApiUrl + "banks/commission/{bankCode}";
 
-        System.out.println(restTemplate.getForObject(commissionEndpoint, String.class, bankCodeParam));
         return restTemplate.getForEntity(commissionEndpoint, BigDecimal.class, bankCodeParam)
                 .getBody();
     }
