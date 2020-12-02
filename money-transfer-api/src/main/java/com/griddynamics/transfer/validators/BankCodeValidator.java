@@ -16,6 +16,11 @@ public class BankCodeValidator implements ConstraintValidator<ValidBank, String>
         return getValidBanks().contains(bankCode);
     }
 
+    //Method for PowerMockito usage example
+    public final boolean isValid(String bankCode) {
+        return getValidBanks().contains(bankCode);
+    }
+
     private Collection<String> getValidBanks() {
         return Arrays.asList("CB", "HSBC", "MLM", "PRIV", "VTB");
     }

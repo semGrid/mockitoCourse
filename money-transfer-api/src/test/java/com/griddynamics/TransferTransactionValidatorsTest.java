@@ -6,6 +6,7 @@ import com.griddynamics.transfer.validators.BankCodeValidator;
 import com.griddynamics.transfer.validators.CurrencyCodeValidator;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.mockito.Mockito;
 import org.powermock.api.mockito.PowerMockito;
 import org.powermock.core.classloader.annotations.PowerMockIgnore;
 import org.powermock.core.classloader.annotations.PrepareForTest;
@@ -22,6 +23,7 @@ import java.util.Collections;
 import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 @RunWith(PowerMockRunner.class)
 @PowerMockRunnerDelegate(SpringJUnit4ClassRunner.class)
@@ -52,7 +54,7 @@ public class TransferTransactionValidatorsTest {
 
     @Test
     public void checkBankCodeValidator() throws Exception {
-        BankCodeValidator spy = PowerMockito.spy(new BankCodeValidator());
+        BankCodeValidator spy = Mockito.spy(new BankCodeValidator());
 
         PowerMockito.when(spy, "getValidBanks")
                 .thenReturn(Collections.singletonList("HSBC"));
@@ -62,8 +64,6 @@ public class TransferTransactionValidatorsTest {
                 .setTransactionAmount(new BigDecimal("100"))
                 .setTransactionCurrency("USD");
 
-        Set<ConstraintViolation<TransferTransaction>> violations = validator.validate(transferTransaction);
-
-        assertEquals(0, violations.size());
+        assertFalse(spy.isValid(transferTransaction.getBankOfRecipient()));
     }
 }
