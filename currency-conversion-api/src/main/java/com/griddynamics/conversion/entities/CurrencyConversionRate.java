@@ -1,5 +1,6 @@
 package com.griddynamics.conversion.entities;
 
+import com.griddynamics.conversion.validators.ValidCurrencyId;
 import io.swagger.annotations.ApiModelProperty;
 
 import javax.persistence.Column;
@@ -13,6 +14,7 @@ import java.math.BigDecimal;
 public class CurrencyConversionRate {
 
     @EmbeddedId
+    @ValidCurrencyId
     private CurrencyId currency;
 
     @Column(name = "exchange_rate")
