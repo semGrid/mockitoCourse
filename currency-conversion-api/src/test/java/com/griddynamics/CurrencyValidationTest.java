@@ -33,7 +33,7 @@ public class CurrencyValidationTest {
     private Validator validator;
 
     @Test
-    public void checkCurrencyCodeValidator() throws Exception {
+    public void checkCurrencyPairValidator() throws Exception {
 
         PowerMockito.mockStatic(CurrencyIdValidator.class);
 
