@@ -12,10 +12,10 @@ For building and running the application you need:
 To start the application run all microservices one by one. There are several ways to run them on your local machine. 
 One way is to execute the `main` method in the `*.*Application` classes from your IDE.
 
-####Run Discovery Server first:
+#### Run Discovery Server first:
 `com.griddynamics.discoveryserver.DiscoveryServerApplication::main`
 
-####Run all microservices:
+#### Run all microservices:
 
 - **Banks Information API**
 `com.griddynamics.banksinfo.BanksInformationApplication::main`
