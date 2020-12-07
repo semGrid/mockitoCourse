@@ -60,7 +60,7 @@ Our sample microservices-based system consists of the following modules:
 
 The following picture illustrates the architecture described above.
 
-<img src="https://piotrminkowski.files.wordpress.com/2018/04/spring-cloud-1.png" title="Architecture"><br/>
+<img src="https://github.com/griddynamics/gridu-qa-service-testing-mocks/blob/master/.img/full_application_structure.png" title="Architecture"><br/>
 
 
 ## Documentation
