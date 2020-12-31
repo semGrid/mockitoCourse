@@ -1,4 +1,4 @@
-
+# Mocking frameworks example project (Money Transfer Application)
 
 ## Requirements
 
@@ -53,7 +53,7 @@ Run all microservices:
 ## Architecture
 
 Our sample microservices-based system consists of the following modules:
-- **discoveryserver** - a module ...
+- **discoveryserver** - a module with Netflix Eureka service registry, should be started first to register all microservices
 - **banks-information-api** - an API that provides client bank information such as bank currency and income transactions commission percentage by bank code
 - **currency-conversion-api** - an API responsible for transfer amount conversion to client bank account currency by predefined rates
 - **money-transfer-api** - main API, perform money transactions to client and return sent amount converted to client bank currency and after commission deduction
@@ -71,4 +71,19 @@ Each service has their own `Swagger`, you can access it, find available endpoint
 - Money Transfer API - `http://localhost:9093/swagger-ui.html` 
 
 ## Branches
-
+Branch Name  | Branch Content
+------------- | -------------
+[mockito_assignment](https://github.com/griddynamics/gridu-qa-service-testing-mocks/tree/mockito_assignment)  | Branch with with starting point code of Mockito assignment
+[mockito_assignment_completed](https://github.com/griddynamics/gridu-qa-service-testing-mocks/tree/mockito_assignment_completed)  | Completed code example for Mockito assignment
+[mockito_junit_example](https://github.com/griddynamics/gridu-qa-service-testing-mocks/tree/mockito_junit_example)  | Mockito usage example with JUnit test runner framework
+[mockito_testng_example](https://github.com/griddynamics/gridu-qa-service-testing-mocks/tree/mockito_testng_example)  | Mockito usage example with TestNg test runner framework
+[powermock_example](https://github.com/griddynamics/gridu-qa-service-testing-mocks/tree/powermock_example)  | Completed code example from PowerMock course section
+[powermock_assignment](https://github.com/griddynamics/gridu-qa-service-testing-mocks/tree/powermock_assignment)  | Branch with code for starting PowerMock assignment
+[powermock_assignment_completed](https://github.com/griddynamics/gridu-qa-service-testing-mocks/tree/powermock_assignment_completed)  | Completed code example for PowerMock assignment
+[wiremock_example](https://github.com/griddynamics/gridu-qa-service-testing-mocks/tree/wiremock_example)  | Completed code example from WireMock course section
+[wiremock_assignment](https://github.com/griddynamics/gridu-qa-service-testing-mocks/tree/wiremock_assignment)  | Branch with code for starting WireMock assignment
+[wiremock_assignment_completed](https://github.com/griddynamics/gridu-qa-service-testing-mocks/tree/wiremock_assignment_completed)  | Completed code example for WireMock assignment
+[swagger_mock_server_example](https://github.com/griddynamics/gridu-qa-service-testing-mocks/tree/swagger_mock_server_example)  | Completed code example from Swagger mock server course section
+[swagger_mock_assignment](https://github.com/griddynamics/gridu-qa-service-testing-mocks/tree/swagger_mock_assignment)  | Branch with code for starting Swagger mock server assignment
+[powermock_assignment_completed](https://github.com/griddynamics/gridu-qa-service-testing-mocks/tree/powermock_assignment_completed)  | Completed code example for Swagger mock server assignment
+[no_mock_example](https://github.com/griddynamics/gridu-qa-service-testing-mocks/tree/no_mock_example)  | Some tests example for microservices testing without using of mocks
