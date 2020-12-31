@@ -6,7 +6,6 @@ import com.griddynamics.transfer.validators.BankCodeValidator;
 import com.griddynamics.transfer.validators.CurrencyCodeValidator;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.mockito.Mockito;
 import org.powermock.api.mockito.PowerMockito;
 import org.powermock.core.classloader.annotations.PowerMockIgnore;
 import org.powermock.core.classloader.annotations.PrepareForTest;
@@ -14,6 +13,7 @@ import org.powermock.modules.junit4.PowerMockRunner;
 import org.powermock.modules.junit4.PowerMockRunnerDelegate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import javax.validation.ConstraintViolation;
@@ -30,6 +30,7 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 @PowerMockIgnore("javax.management.*")
 @PrepareForTest(value = {CurrencyCodeValidator.class, BankCodeValidator.class})
 @SpringBootTest(classes = MoneyTransferApplication.class)
+@TestPropertySource("classpath:application-test.properties")
 public class TransferTransactionValidatorsTest {
 
     @Autowired
@@ -54,7 +55,10 @@ public class TransferTransactionValidatorsTest {
 
     @Test
     public void checkBankCodeValidator() throws Exception {
-        BankCodeValidator spy = Mockito.spy(new BankCodeValidator());
+        BankCodeValidator spy = PowerMockito.spy(new BankCodeValidator());
+
+        //To see a difference between PowerMock and Mockito try to use this row instead of above one
+        //BankCodeValidator spy = Mockito.spy(new BankCodeValidator());
 
         PowerMockito.when(spy, "getValidBanks")
                 .thenReturn(Collections.singletonList("HSBC"));
