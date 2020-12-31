@@ -66,9 +66,9 @@ The following picture illustrates the architecture described above.
 ## Documentation
 Each service has their own `Swagger`, you can access it, find available endpoints and try to execute some requests using links:
 
-- Currency Conversion API - `http://localhost:9091/swagger-ui.html`
-- Banks Information API - `http://localhost:9092/swagger-ui.html`
-- Money Transfer API - `http://localhost:9093/swagger-ui.html` 
+- Currency Conversion API - [`http://localhost:9091/swagger-ui.html`](http://localhost:9091/swagger-ui.html)
+- Banks Information API - [`http://localhost:9092/swagger-ui.html`](http://localhost:9091/swagger-ui.html)
+- Money Transfer API - [`http://localhost:9093/swagger-ui.html`](http://localhost:9091/swagger-ui.html) 
 
 ## Branches
 Branch Name  | Branch Content
