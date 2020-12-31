@@ -46,7 +46,6 @@ public class SwaggerStubExampleBaseTest {
         moneyTransfer.run();
     }
 
-
     @Test
     private void moneyTransferRequestStatusValidation() {
         given().baseUri("http://localhost:8083/")

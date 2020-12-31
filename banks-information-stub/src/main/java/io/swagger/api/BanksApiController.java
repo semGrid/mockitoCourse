@@ -49,7 +49,7 @@ public class BanksApiController implements BanksApi {
         String accept = request.getHeader("Accept");
         if (accept != null && accept.contains("application/json")) {
             try {
-                return new ResponseEntity<BigDecimal>(objectMapper.readValue("0.0", BigDecimal.class), HttpStatus.NOT_IMPLEMENTED);
+                return new ResponseEntity<BigDecimal>(objectMapper.readValue("0.0", BigDecimal.class), HttpStatus.OK);
             } catch (IOException e) {
                 log.error("Couldn't serialize response for content type application/json", e);
                 return new ResponseEntity<BigDecimal>(HttpStatus.INTERNAL_SERVER_ERROR);
