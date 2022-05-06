@@ -23,6 +23,26 @@ public class BankInformation {
     @Column(name = "commission_percentage")
     private BigDecimal commissionPercentage;
 
+    public BankInformation setCode(String code) {
+        this.code = code;
+        return this;
+    }
+
+    public BankInformation setCurrency(String currency) {
+        this.currency = currency;
+        return this;
+    }
+
+    public BankInformation setName(String name) {
+        this.name = name;
+        return this;
+    }
+
+    public BankInformation setCommissionPercentage(BigDecimal commissionPercentage) {
+        this.commissionPercentage = commissionPercentage;
+        return this;
+    }
+
     public String getCode() {
         return code;
     }
